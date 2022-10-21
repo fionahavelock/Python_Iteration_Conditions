@@ -25,9 +25,11 @@ def GenerateSpells():
         Number = random.randrange(20, 50)
     elif Importantance == "2" or Importantance== "Important":
         Number = random.randrange(10, 20)
-    else:
-        if Importantance == "3" or Importantance == "Just for fun":
+    elif Importantance == "3" or Importantance == "Just for fun":
             Number = random.randrange(2, 10)
+    else:
+        print("\n<<~~***~~>>\nCasting a spell didn't work, please type in why you want to cast a spell again:")
+        GenerateSpells()
     #Random words
     wordList = ["say", "shout", "whisper", "declare", "chant"]
     randomWord = random.choice(wordList)
@@ -39,7 +41,7 @@ def GenerateSpells():
     actionList = ["Wave", "Flick", "Circle"]
     randomAction = random.choice(actionList)
     
-    spell = print(f"To cast a spell you must follow these directions: \n{randomAction} your wand {Number} times and {randomWord} {randomSpell}.")
+    spell = print(f"\n<<~~***~~>>\nTo cast a spell you must follow these directions: \n{randomAction} your wand {Number} times and {randomWord} {randomSpell}.")
     Continue = str(input("Do you need to generate more spells? \n Type in yes or no: "))
     if Continue == "Yes" or Continue == "yes" or Continue == "y":
          GenerateSpells()
@@ -48,13 +50,3 @@ def GenerateSpells():
     return spell
 
 GenerateSpells()
-
-"""
-Importantance = input("Please enter your mark: ")
-if Importantance <= 50:
-    print("You have failed")
-elif mark > 50 and mark <= 69:
-    print("You have a merit")
-else:
-    print("You have a distiction")
-"""
