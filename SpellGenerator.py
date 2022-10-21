@@ -19,7 +19,8 @@ These tasks can be whatever you like; printing something to the terminal, making
 import random
 #Create global variables
 Number = 0
-def GenerateSpells():
+#Define a function to generate the spells
+def GetUserInput():
     Importantance = str(input("Is the spell you are casting today either: 1. Crucial  2. Important 3. Just for fun \nType in your response: "))
     if Importantance == "1" or Importantance == "Crucial":
         Number = random.randrange(20, 50)
@@ -29,7 +30,12 @@ def GenerateSpells():
             Number = random.randrange(2, 10)
     else:
         print("\n<<~~***~~>>\nCasting a spell didn't work, please type in why you want to cast a spell again:")
-        GenerateSpells()
+        GetUserInput()
+    return Number
+    
+
+def GenerateSpells():
+    number = GetUserInput()
     #Random words
     wordList = ["say", "shout", "whisper", "declare", "chant"]
     randomWord = random.choice(wordList)
@@ -41,8 +47,8 @@ def GenerateSpells():
     actionList = ["Wave", "Flick", "Circle"]
     randomAction = random.choice(actionList)
     
-    spell = print(f"\n<<~~***~~>>\nTo cast a spell you must follow these directions: \n{randomAction} your wand {Number} times and {randomWord} {randomSpell}.")
-    Continue = str(input("Do you need to generate more spells? \n Type in yes or no: "))
+    spell = print(f'\n<<~~***~~>>\nTo cast a spell you must follow these directions: \n{randomAction} your wand {number} times and {randomWord} "{randomSpell}".')
+    Continue = str(input("\nDo you need to generate more spells? \nType in yes or no: "))
     if Continue == "Yes" or Continue == "yes" or Continue == "y":
          GenerateSpells()
     else:

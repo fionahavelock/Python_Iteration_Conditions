@@ -47,8 +47,8 @@ def GenerateSpells():
     actionList = ["Wave", "Flick", "Circle"]
     randomAction = random.choice(actionList)
     
-    spell = print(f"\n<<~~***~~>>\nTo cast a spell you must follow these directions: \n{randomAction} your wand {number} times and {randomWord} {randomSpell}.")
-    Continue = str(input("Do you need to generate more spells? \nType in yes or no: "))
+    spell = print(f"\n<<~~***~~>>\nTo cast a spell you must follow these directions: \n{randomAction} your wand {number} times and {randomWord} '{randomSpell}'.")
+    Continue = str(input("\nDo you need to generate more spells? \nType in yes or no: "))
     if Continue == "Yes" or Continue == "yes" or Continue == "y":
          GenerateSpells()
     else:
